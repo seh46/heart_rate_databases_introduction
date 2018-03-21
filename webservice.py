@@ -31,7 +31,7 @@ def storeHR():
 		
 
 @app.route("/api/heart_rate/<user_email>", methods=[GET])
-def returnHRs(user_email)
+def returnHRs(user_email):
 	mmod.print_user(user_email)
 
 
