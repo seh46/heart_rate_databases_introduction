@@ -20,8 +20,17 @@ def print_user(email):
     print(user.heart_rate)
     print(user.heart_rate_times)
 
-if __name__ == "__main__":
-    connect("mongodb://vcm-3483.vm.duke.edu:27017/heart_rate_app") # open up connection to db
-    create_user(email="suyash@suyashkumar.com", age=24, heart_rate=60) # we should only do this once, otherwise will overwrite existing user
-    add_heart_rate("suyash@suyashkumar.com", 60, datetime.datetime.now())
-    print_user("suyash@suyashkumar.com")
+def avg_HR(email):    
+    user = models.User.objects.raw({"_id": email}),first()
+    hrs = user.heart_rate
+    avg = sum(hrs)/len(hrs)
+
+def int_avg_HR(email, time):
+    user = modes.User.objects.raw({"_id": email}),first()
+    hrs = user.heart_rate
+    times = user.heart_rate_times
+    ahrs = []
+    for i,n in enumerate(times):
+        if i>time:
+            ahrs.append(hrs[n])
+    avg = sum(ahrs)/len(ahrs)
