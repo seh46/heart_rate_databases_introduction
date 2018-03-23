@@ -56,7 +56,8 @@ def avg_HR(email):
     """
     user = models.User.objects.raw({"_id": email}).first()
     hrs = user.heart_rate
-    avg = sum(hrs)/len(hrs)
+    user.avg = sum(hrs)/len(hrs)
+    user.save()
 
 
 def int_avg_HR(email, time):
@@ -73,4 +74,5 @@ def int_avg_HR(email, time):
     for i, n in enumerate(times):
         if i > time:
             ahrs.append(hrs[n])
-    avg = sum(ahrs)/len(ahrs)
+    user.int_avg = sum(ahrs)/len(ahrs)
+    user.save()
