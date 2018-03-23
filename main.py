@@ -57,6 +57,23 @@ def avg_HR(email):
     user = models.User.objects.raw({"_id": email}).first()
     hrs = user.heart_rate
     user.avg = sum(hrs)/len(hrs)
+    tlim = 100
+    if (user.age >= 12) or (user.age <= 15):
+        tlim = 119
+    elif (user.age >= 8) or (user.age <= 11):
+        tlim = 130
+    elif (user.age >= 5) or (user.age <= 7):
+        tlim = 133
+    elif (user.age >= 3) or (user.age <= 4):
+        tlim = 137
+    elif (user.age >= 1) or (user.age <= 2):
+        tlim = 151
+    elif user.age < 1:
+        tlim = 160
+    if user.avg >= tlim:
+        user.tach = True
+    else:
+        user.tach = False
     user.save()
 
 
@@ -75,4 +92,21 @@ def int_avg_HR(email, time):
         if i > time:
             ahrs.append(hrs[n])
     user.int_avg = sum(ahrs)/len(ahrs)
+    tlim = 100
+    if (user.age >= 12) or (user.age <= 15):
+        tlim = 119
+    elif (user.age >= 8) or (user.age <= 11):
+        tlim = 130
+    elif (user.age >= 5) or (user.age <= 7):
+        tlim = 133
+    elif (user.age >= 3) or (user.age <= 4):
+        tlim = 137
+    elif (user.age >= 1) or (user.age <= 2):
+        tlim = 151
+    elif user.age < 1:
+        tlim = 160
+    if user.int_avg >= tlim:
+        user.tach = True
+    else:
+        user.tach = False
     user.save()
