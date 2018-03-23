@@ -2,9 +2,8 @@ from pymodm import connect
 import models
 import datetime
 from flask import Flask, jsonify, request
-import main.py as mmod
+import main as mmod
 connect("mongodb://vcm-3483.vm.duke.edu:27017/heart_rate_app")
-
 app = Flask(__name__)
 
 @app.route("/api/heart_rate", methods=["POST"])
@@ -30,17 +29,17 @@ def storeHR():
 		print("Please enter user email, heart rate, and time")
 		
 
-@app.route("/api/heart_rate/<user_email>", methods=[GET])
+@app.route("/api/heart_rate/<user_email>", methods=["GET"])
 def returnHRs(user_email):
 	mmod.print_user(user_email)
 
 
-@app.route("/api/heart_rate/average/<user_email>", methods=[GET])
+@app.route("/api/heart_rate/average/<user_email>", methods=["GET"])
 def returnAvg(user_email):
 	mmod.avg_HR(user_email)
 
 
-@app.route("/api/heart_rate/interval_average", methods=[POST])
+@app.route("/api/heart_rate/interval_average", methods=["POST"])
 def returnIntAvg():
 	s = request.get_json()
 	try:
