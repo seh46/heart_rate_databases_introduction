@@ -4,51 +4,36 @@ import datetime
 import main
 import pytest
 
-def add_heart_rate(email, heart_rate, time):
-    """
-    Append a heart rate and time to an existing user
-    :param email: user email address
-    :param heart_rate: heart rate reading
-    :param time: time at which heart rate was taken
-    :return:
-    """
-    t1 =
+
+def test_add_heart_rate(email, heart_rate, time):
+    t1 = main.create_user('seh46@duke.edu', 22, 58)
+    t2 = main.create_user('eab69@duke.edu', 22, 62)
+    t1.add_heart_rate('seh46@duke.edu', 84)
+    t2.add_heart_rate('eab69@duke.edu', 59)
+    assert t1.heart_rate == [58, 84]
+    assert t2.heart_rate == [62, 59]
 
 
-def create_user(email, age, heart_rate):
-    """
-    Create new user with initial heart rate reading
-    :param email: user email address
-    :param age: user age
-    :param heart_rate: initial heart rate reading
-    :return:
-    """
+def test_create_user(email, age, heart_rate):
+    t1 = main.create_user('seh46@duke.edu', 22, 58)
+    t2 = main.create_user('eab69@duke.edu', 22, 62)
+    assert t1.heart_rate == 58
+    assert t2.heart_rate == 62
+    assert t1.heart_rate_times == datetime.datetime.now()
+    assert t2.heart_rate_times == datetime.datetime.now()
 
 
-
-def print_user(email):
-    """
-    Print user email and list of heart rates and times
-    :param email: user email address
-    :return:
-    """
-
-
-
-def avg_HR(email):
-    """
-    Find the average heart rate for a user over complete time history
-    :param email: user email address
-    :return:
-    """
+def test_avg_hr(email):
+    t1 = main.create_user('seh46@duke.edu', 22, 58)
+    t2 = main.create_user('eab69@duke.edu', 22, 62)
+    t1.add_heart_rate('seh46@duke.edu', 84)
+    t2.add_heart_rate('eab69@duke.edu', 59)
+    t1.add_heart_rate('seh46@duke.edu', 50)
+    t2.add_heart_rate('eab69@duke.edu', 140)
+    t1.avg_HR('seh46@duke.edu')
+    t2.avg_HR('eab69@duke.edu')
+    assert t1.avg == 64
+    assert t2.avg == 87
 
 
-
-def int_avg_HR(email, time):
-    """
-    Find the average heart rate for a user since a user-specified time point
-    :param email: user email address
-    :param time: time of first measurement to be included in average
-    :return:
-    """
-
+# def test_int_avg_hr(email, time):
