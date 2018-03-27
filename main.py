@@ -3,7 +3,7 @@ import models
 import datetime
 
 
-def add_heart_rate(email, heart_rate, time):
+def add_heart_rate(email, heart_rate):
     """
     Append a heart rate and time to an existing user
     :param email: user email address
@@ -15,7 +15,7 @@ def add_heart_rate(email, heart_rate, time):
     # user where _id=email
     user.heart_rate.append(heart_rate)  # Append the heart_rate to the user's
     # list of heart rates
-    user.heart_rate_times.append(time)  # append the current time to the user's
+    user.heart_rate_times.append(datetime.datetime.now())  # append the current time to the user's
     #  list of heart rate times
     user.save() # save the user to the database
 
