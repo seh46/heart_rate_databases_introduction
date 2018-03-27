@@ -23,7 +23,7 @@ def storeHR():
 		except:
 			try:
 				ag = s["age"]
-				mmod.create_user(em, ag, hr, t)
+				mmod.create_user(em, ag, hr)
 			except:
 				print("To create new user, specify age")
 	except:
