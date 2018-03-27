@@ -16,8 +16,8 @@ def storeHR():
     try:
         em = s["email"]
         hr = s["heart_rate"]
-        t = s["time"]
         try:
+            t = s["time"]
             mmod.add_heart_rate(em, hr, t)
             return 'Successfully added heart rate to user', 200
         except:
