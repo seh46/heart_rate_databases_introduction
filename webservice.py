@@ -42,8 +42,10 @@ def returnHRs(user_email):
 
 @app.route("/api/heart_rate/average/<user_email>", methods=["GET"])
 def returnAvg(user_email):
-    uavg = mmod.avg_HR(user_email)
-    return jsonify(uavg), 200
+    vals = mmod.avg_HR(user_email)
+    uavg = vals["avg"]
+    utach = vals["tach"]
+    return jsonify(uavg,utach), 200
 
 
 @app.route("/api/heart_rate/interval_average", methods=["POST"])
@@ -52,7 +54,9 @@ def returnIntAvg():
     try:
         em = s["email"]
         t = s["time"]
-        uiavg = mmod.int_avg_HR(em, t)
-        return jsonify(uiavg), 200
+        vals = mmod.int_avg_HR(em, t)
+        uiavg = vals["int_avg"]
+        utach = vals["tach"]
+        return jsonify(uiavg,utach), 200
     except:
         return 'Please specify user email and start time to calculate average HR', 400

@@ -38,7 +38,7 @@ def create_user(email, age, heart_rate):
 def print_user(email):
     """
     Print user email and list of heart rates and times
-    :param email: user email address
+    :param ema3dil: user email address
     :return:
     """
     user = models.User.objects.raw({"_id": email}).first()  # Get the first
@@ -73,7 +73,7 @@ def avg_HR(email):
     else:
         user.tach = False
     user.save()
-    return user.avg
+    return{'avg':user.avg, 'tach':user.tach}
 
 
 def int_avg_HR(email, time):
@@ -109,4 +109,4 @@ def int_avg_HR(email, time):
     else:
         user.tach = False
     user.save()
-    return user.int_avg
+    return {'int_avg': user.int_avg, 'tach': user.tach}
