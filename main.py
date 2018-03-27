@@ -43,9 +43,7 @@ def print_user(email):
     """
     user = models.User.objects.raw({"_id": email}).first()  # Get the first
     # user where _id=email
-    print(user.email)
-    print(user.heart_rate)
-    print(user.heart_rate_times)
+    return{'em': user.email, 'hr': user.heart_rate, 't': user.heart_rate_times}
 
 
 def avg_HR(email):
@@ -75,6 +73,7 @@ def avg_HR(email):
     else:
         user.tach = False
     user.save()
+    return user.avg
 
 
 def int_avg_HR(email, time):
@@ -110,3 +109,4 @@ def int_avg_HR(email, time):
     else:
         user.tach = False
     user.save()
+    return user.int_avg
