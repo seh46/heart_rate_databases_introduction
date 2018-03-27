@@ -13,5 +13,5 @@ install:
         - conda env create -f environment.yml
         - source activate heart-rate-database-introduction_env
 script:
-        - pytest -v --pep8
+        - pytest
 
