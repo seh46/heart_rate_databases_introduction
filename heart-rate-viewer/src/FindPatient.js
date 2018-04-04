@@ -27,7 +27,6 @@ class FindPatient extends React.Component {
 				<Button onClick={this.onButtonClick}>
 					Log text field data.
 				</Button>
-				{this.state.nameTextField} 
 			</div>
 		);
 	}
