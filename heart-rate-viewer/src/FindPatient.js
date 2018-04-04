@@ -31,7 +31,7 @@ class FindPatient extends React.Component {
 					value={this.state.nameTextField}
 					onChange={this.onNameTextFieldChange}/>
 				<Button onClick={this.onButtonClick}>
-					Log text field data.
+					Get Heart Rate Data
 				</Button>
 			</div>
 		);
