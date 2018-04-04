@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
+import FetchData from './FetchData.js'
 
 class FindPatient extends React.Component {
 	constructor() {
@@ -16,6 +17,7 @@ class FindPatient extends React.Component {
 
 	onButtonClick = (event) => {
 		console.log(this.state.nameTextField);
+		<FetchData userEmail={console.log(this.state.nameTextField)}/>
 	}
 
 	render() {
