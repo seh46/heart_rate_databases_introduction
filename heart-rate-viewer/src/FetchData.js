@@ -8,22 +8,12 @@ class FetchData extends React.Component {
 		super();
 		this.state = {
 			"data": "blank",
-			"nameTextField": "",
-			"nameToSearch": "",
 		};
 	}
 
-	onNameTextFieldChange = (event) => {
-		this.setState({"nameTextField": event.target.value});
-	}
-
-	onButtonClick = (event) => {
-		console.log(this.state.nameTextField);
-		this.setState({"nameToSearch": this.state.nameTextField})
-	}
-
 	DataFromServer = () => {
-		axios.get("http://67.159.95.29:5000/api/heart_rate/" + this.state.nameToSearch).then( (response) => {
+		var URL = "http://67.159.95.29:5000/api/heart_rate/" + this.props.userEmail
+		axios.get(URL).then( (response) => {
 			console.log(response.status);
 			this.setState({"data": response.data});
 		});
@@ -31,19 +21,9 @@ class FetchData extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<div>
-					<TextField 
-						value={this.state.nameTextField}
-						onChange={this.onNameTextFieldChange}/>
-					<Button onClick={this.onButtonClick}>
-						Log text field data.
-					</Button>
-				</div>
-				<div onClick={this.DataFromServer}>
-					{this.state.nameToSearch}
-					{this.state.data}
-				</div>
+			<div onClick={this.DataFromServer}>
+				{this.state.nameToSearch}
+				{this.state.data}
 			</div>
 		)
 	}
