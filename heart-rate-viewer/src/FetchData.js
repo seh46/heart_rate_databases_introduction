@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import TextField from 'material-ui/TextField';
-import Button from 'material-ui/Button';
+import Table, {TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 
 class FetchData extends React.Component {
 	constructor() {
@@ -22,8 +21,13 @@ class FetchData extends React.Component {
 	render() {
 		return (
 			<div onClick={this.DataFromServer}>
-				{this.state.nameToSearch}
 				{this.state.data}
+				<TableHead>
+					<TableRow>
+						<TableCell>Time</TableCell>
+						<TableCell>HR</TableCell>
+					</TableRow>
+				</TableHead>
 			</div>
 		)
 	}
