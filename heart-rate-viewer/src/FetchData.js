@@ -9,17 +9,14 @@ class FetchData extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			"data": [],
+			"data": {time: [], hr: []},
 			"nameTextField": "",
 			"nameToSearch": "",
-			"time": [],
-			"hr": [],
-			"datapairs": [],
 		};
 		this.onNameTextFieldChange.bind(this)
 		this.onButtonClick.bind(this)
 		this.DataFromServer.bind(this)
-		this.FormatDataTable.bind(this)
+		//this.FormatDataTable.bind(this)
 	}
 
 	onNameTextFieldChange = (event) => {
@@ -34,19 +31,32 @@ class FetchData extends React.Component {
 	DataFromServer = () => {
 		axios.get("http://67.159.95.29:5000/api/heart_rate/" + this.state.nameToSearch).then( (response) => {
 			console.log(response.status);
-			this.setState({"data": response.data, "time": response.data.time, "hr": response.data.hr});
+			this.setState({"data": response.data});
 		});
-		this.FormatDataTable()
+		//this.FormatDataTable()
 	}
 
-	FormatDataTable = () => {
+	//FormatDataTable = () => {
 		//var datapieces = JSON.parse(this.state.data);
+		//var a = [];
+		//for (var i = 0; i < this.state.time.length; i++) {
+			//a.push([this.state.time[i], this.state.hr[i]]);
+		//}
+		//this.setState({"datapairs": a})
+		//console.log(this.state.datapairs);
+	//}
+
+	dataTable = (data) => {
 		var a = [];
-		for (var i = 0; i < this.state.time.length; i++) {
-			a.push([this.state.time[i], this.state.hr[i]]);
+		for (var i = 0; i < data.time.length; i++) {
+			a.push(
+				<TableRow>
+					<TableCell>{data.time[i]}</TableCell>
+					<TableCell>{data.hr[i]}</TableCell>
+				</TableRow>
+			)
 		}
-		this.setState({"datapairs": a})
-		console.log(this.state.datapairs);
+		return a
 	}
 
 	render() {
@@ -63,9 +73,6 @@ class FetchData extends React.Component {
 				<div onClick={this.DataFromServer}>
 					{this.state.nameToSearch}
 					{this.state.data}
-					{this.state.time}
-					{this.state.hr}
-					{this.state.datapairs}
 				</div>
 				<Paper>
 					<Table>
@@ -76,13 +83,7 @@ class FetchData extends React.Component {
 							</TableRow>
 						</TableHead>
 						<TableBody>
-							<TableRow>
-								<TableCell>{this.state.datapairs[0]}</TableCell>
-							</TableRow>
-							<TableRow>
-								<TableCell>{this.state.time[0]}</TableCell>
-								<TableCell>{this.state.hr[0]}</TableCell>
-							</TableRow>
+							this.dataTable(data)
 						</TableBody>
 					</Table>
 				</Paper>
