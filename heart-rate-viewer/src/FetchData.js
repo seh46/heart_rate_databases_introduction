@@ -7,7 +7,7 @@ class FetchData extends React.Component {
 		super();
 		this.state = {
 			"data": "",
-			"datapairs": "",
+			"datapairs": [],
 		};
 	}
 
