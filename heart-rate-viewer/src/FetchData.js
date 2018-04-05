@@ -37,6 +37,11 @@ class FetchData extends React.Component {
 						<TableCell>HR</TableCell>
 					</TableRow>
 				</TableHead>
+				<TableBody>
+					<TableRow>
+						<TableCell>{this.state.datapairs[0]}</TableCell>
+					</TableRow>
+				</TableBody>
 			</div>
 		)
 	}
