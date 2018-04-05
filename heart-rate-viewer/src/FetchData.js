@@ -81,7 +81,7 @@ class FetchData extends React.Component {
 							</TableRow>
 						</TableHead>
 						<TableBody>
-							this.dataTable(data)
+							{this.dataTable(data)}
 						</TableBody>
 					</Table>
 				</Paper>
