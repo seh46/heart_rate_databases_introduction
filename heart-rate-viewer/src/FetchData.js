@@ -16,13 +16,17 @@ class FetchData extends React.Component {
 		axios.get(URL).then( (response) => {
 			console.log(response.status);
 			this.setState({"data": response.data});
-			var datapieces = JSON.parse(this.state.data);
-			var a = [];
-			for (var i = 0; i < datapieces.time.length; i++) {
-				a.push([datapieces.time[i], datapieces.hr[i]]);
-			}
-			this.setState({"datapairs": a})
 		});
+	}
+
+	FormatDataTable = () => {
+		var datapieces = JSON.parse(this.state.data);
+		var a = [];
+		for (var i = 0; i < datapieces.time.length; i++) {
+			a.push([datapieces.time[i], datapieces.hr[i]]);
+		}
+		this.setState({"datapairs": a})
+		console.log(this.state.datapairs);
 	}
 
 	render() {
@@ -30,6 +34,7 @@ class FetchData extends React.Component {
 			<div>	
 				{this.props.userEmail}
 				{this.DataFromServer}
+				{this.FormatDataTable}
 				<TableHead>
 					<TableRow>
 						<TableCell>Time</TableCell>
