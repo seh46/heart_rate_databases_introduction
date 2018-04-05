@@ -18,10 +18,10 @@ class FindPatient extends React.Component {
 
 	onButtonClick = (event) => {
 		console.log(this.state.nameTextField);
+		this.setState({"nameToSearch": this.state.nameTextField});
 		return(
 			<div>
 				<FetchData userEmail={this.state.nameTextField} />
-				this.setState({"nameToSearch": this.state.nameTextField});
 			</div>
 		);
 	}
