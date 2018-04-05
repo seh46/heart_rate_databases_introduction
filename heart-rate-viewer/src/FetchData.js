@@ -7,7 +7,6 @@ class FetchData extends React.Component {
 		super();
 		this.state = {
 			"data": "blank",
-			"userEmail": "blank email",
 		};
 	}
 
