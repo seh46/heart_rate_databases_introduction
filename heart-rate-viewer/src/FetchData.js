@@ -17,9 +17,9 @@ class FetchData extends React.Component {
 			console.log(response.status);
 			this.setState({"data": response.data});
 			var datapieces = JSON.parse(this.state.data);
-			let a = this.state.datapairs.slice();
+			var a = [];
 			for (var i = 0; i < datapieces.time.length; i++) {
-				a[i] = [datapieces.time[i],datapieces.hr[i]];
+				a.push([datapieces.time[i], datapieces.hr[i]]);
 			}
 			this.setState({"datapairs": a})
 		});
