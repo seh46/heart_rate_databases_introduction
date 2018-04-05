@@ -31,6 +31,7 @@ class FetchData extends React.Component {
 				{this.props.userEmail}
 				{this.DataFromServer}
 				{this.state.data}
+				{this.state.datapairs}
 				<TableHead>
 					<TableRow>
 						<TableCell>Time</TableCell>
