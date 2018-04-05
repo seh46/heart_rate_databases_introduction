@@ -8,6 +8,7 @@ class FindPatient extends React.Component {
 		super();
 		this.state = {
 			"nameTextField": "",
+			"nameToSearch": "",
 		}
 	}
 
@@ -20,6 +21,7 @@ class FindPatient extends React.Component {
 		return(
 			<div>
 				<FetchData userEmail={this.state.nameTextField} />
+				this.setState({"nameToSearch": this.state.nameTextField});
 			</div>
 		);
 	}
@@ -33,6 +35,7 @@ class FindPatient extends React.Component {
 				<Button onClick={this.onButtonClick}>
 					Get Heart Rate Data
 				</Button>
+				{this.state.nameToSearch}
 			</div>
 		);
 	}
