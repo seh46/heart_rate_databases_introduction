@@ -35,7 +35,6 @@ class FindPatient extends React.Component {
 				<Button onClick={this.onButtonClick}>
 					Get Heart Rate Data
 				</Button>
-				{this.state.nameToSearch}
 			</div>
 		);
 	}

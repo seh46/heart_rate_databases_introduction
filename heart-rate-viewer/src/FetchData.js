@@ -21,6 +21,7 @@ class FetchData extends React.Component {
 
 	render() {
 		return (
+			{this.props.userEmail}
 			<div onClick={this.DataFromServer}>
 				{this.props.userEmail}
 				{this.state.data}
