@@ -7,6 +7,8 @@ class FetchData extends React.Component {
 		super();
 		this.state = {
 			"data": "",
+			"time": [],
+			"hr": [],
 			"datapairs": [],
 		};
 	}
@@ -16,6 +18,7 @@ class FetchData extends React.Component {
 		axios.get(URL).then( (response) => {
 			console.log(response.status);
 			this.setState({"data": response.data});
+			this.setState({"time": response.data.time, "hr": response.data.hr})
 		});
 	}
 
@@ -31,7 +34,7 @@ class FetchData extends React.Component {
 
 	render() {
 		return (
-			<div>	
+			<div>
 				{this.props.userEmail}
 				{this.DataFromServer}
 				{this.FormatDataTable}
@@ -44,6 +47,10 @@ class FetchData extends React.Component {
 				<TableBody>
 					<TableRow>
 						<TableCell>{this.state.datapairs[0]}</TableCell>
+					</TableRow>
+					<TableRow>
+						<TableCell>{this.state.time[0]}</TableCell>
+						<TableCell>{this.state.hr[0]}</TableCell>
 					</TableRow>
 				</TableBody>
 			</div>
