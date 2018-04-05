@@ -20,15 +20,17 @@ class FetchData extends React.Component {
 
 	render() {
 		return (
-			{this.props.userEmail}
-			<div onClick={this.DataFromServer}>
-				{this.state.data}
-				<TableHead>
-					<TableRow>
-						<TableCell>Time</TableCell>
-						<TableCell>HR</TableCell>
-					</TableRow>
-				</TableHead>
+			<div>	
+				{this.props.userEmail}
+				<div onClick={this.DataFromServer}>
+					{this.state.data}
+					<TableHead>
+						<TableRow>
+							<TableCell>Time</TableCell>
+							<TableCell>HR</TableCell>
+						</TableRow>
+					</TableHead>
+				</div>
 			</div>
 		)
 	}
