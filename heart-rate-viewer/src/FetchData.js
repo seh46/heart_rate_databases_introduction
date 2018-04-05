@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Table, {TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import Paper from 'material-ui/Paper'
+import { withStyles } from 'material-ui/styles';
 
 class FetchData extends React.Component {
 	constructor() {
@@ -38,21 +40,25 @@ class FetchData extends React.Component {
 				{this.props.userEmail}
 				{this.DataFromServer}
 				{this.FormatDataTable}
-				<TableHead>
-					<TableRow>
-						<TableCell>Time</TableCell>
-						<TableCell>HR</TableCell>
-					</TableRow>
-				</TableHead>
-				<TableBody>
-					<TableRow>
-						<TableCell>{this.state.datapairs[0]}</TableCell>
-					</TableRow>
-					<TableRow>
-						<TableCell>{this.state.time[0]}</TableCell>
-						<TableCell>{this.state.hr[0]}</TableCell>
-					</TableRow>
-				</TableBody>
+				<Paper>
+					<Table>
+						<TableHead>
+							<TableRow>
+								<TableCell>Time</TableCell>
+								<TableCell>HR</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							<TableRow>
+								<TableCell>{this.state.datapairs[0]}</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell>{this.state.time[0]}</TableCell>
+								<TableCell>{this.state.hr[0]}</TableCell>
+							</TableRow>
+						</TableBody>
+					</Table>
+				</Paper>
 			</div>
 		)
 	}
