@@ -50,11 +50,11 @@ class FetchData extends React.Component {
 
 	dataTable = () => {
 		var a = [];
-		for (var i = 0; i < this.state.time.length; i++) {
+		for (var i = 0; i < this.state.data.time.length; i++) {
 			a.push(
 				<TableRow>
-					<TableCell>{this.state.time[i]}</TableCell>
-					<TableCell>{this.state.hr[i]}</TableCell>
+					<TableCell>{this.state.data.time[i]}</TableCell>
+					<TableCell>{this.state.data.hr[i]}</TableCell>
 				</TableRow>
 			)
 		}
@@ -73,8 +73,6 @@ class FetchData extends React.Component {
 					</Button>
 				</div>
 				<div onClick={this.DataFromServer}>
-					{this.setState({"time": this.state.data.time})}
-					{this.setState({"hr": this.state.data.hr})}
 				</div>
 				<Paper>
 					<Table>
