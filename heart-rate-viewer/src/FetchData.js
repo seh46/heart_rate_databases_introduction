@@ -13,6 +13,7 @@ class FetchData extends React.Component {
 			"hr": [],
 			"datapairs": [],
 		};
+		this.handleClick.bind(this)
 	}
 
 	DataFromServer = () => {
