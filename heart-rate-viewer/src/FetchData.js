@@ -9,7 +9,9 @@ class FetchData extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			"data": {time: [], hr: []},
+			"data": [],
+			"time": [],
+			"hr": [],
 			"nameTextField": "",
 			"nameToSearch": "",
 		};
@@ -46,13 +48,13 @@ class FetchData extends React.Component {
 		//console.log(this.state.datapairs);
 	//}
 
-	dataTable = (data) => {
+	dataTable = () => {
 		var a = [];
-		for (var i = 0; i < data.time.length; i++) {
+		for (var i = 0; i < this.state.time.length; i++) {
 			a.push(
 				<TableRow>
-					<TableCell>{data.time[i]}</TableCell>
-					<TableCell>{data.hr[i]}</TableCell>
+					<TableCell>{this.state.time[i]}</TableCell>
+					<TableCell>{this.state.hr[i]}</TableCell>
 				</TableRow>
 			)
 		}
@@ -71,6 +73,7 @@ class FetchData extends React.Component {
 					</Button>
 				</div>
 				<div onClick={this.DataFromServer}>
+					{this.setState("time": this.data.time, "hr": this.data.hr)}
 				</div>
 				<Paper>
 					<Table>
@@ -81,7 +84,7 @@ class FetchData extends React.Component {
 							</TableRow>
 						</TableHead>
 						<TableBody>
-							{this.dataTable(this.state.data)}
+							{this.dataTable()}
 						</TableBody>
 					</Table>
 				</Paper>
