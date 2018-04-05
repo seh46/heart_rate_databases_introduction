@@ -71,8 +71,6 @@ class FetchData extends React.Component {
 					</Button>
 				</div>
 				<div onClick={this.DataFromServer}>
-					{this.state.nameToSearch}
-					{this.state.data}
 				</div>
 				<Paper>
 					<Table>
