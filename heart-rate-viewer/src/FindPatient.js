@@ -19,11 +19,6 @@ class FindPatient extends React.Component {
 	onButtonClick = (event) => {
 		console.log(this.state.nameTextField);
 		this.setState({"nameToSearch": this.state.nameTextField});
-		return(
-			<div>
-				<FetchData userEmail={this.state.nameTextField} />
-			</div>
-		);
 	}
 
 	render() {
@@ -35,6 +30,7 @@ class FindPatient extends React.Component {
 				<Button onClick={this.onButtonClick}>
 					Get Heart Rate Data
 				</Button>
+				<FetchData userEmail={this.state.nameToSearch} />
 			</div>
 		);
 	}
