@@ -16,7 +16,10 @@ class FetchData extends React.Component {
 			"hr": [],
 			"datapairs": [],
 		};
-		this.handleClick.bind(this)
+		this.onNameTextFieldChange.bind(this)
+		this.onButtonClick.bind(this)
+		this.DataFromServer.bind(this)
+		this.FormatDataTable.bind(this)
 	}
 
 	onNameTextFieldChange = (event) => {
