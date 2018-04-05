@@ -37,9 +37,8 @@ class FetchData extends React.Component {
 	render() {
 		return (
 			<div>
-				{this.props.userEmail}
-				{this.DataFromServer}
-				{this.FormatDataTable}
+				{this.DataFromServer()}
+				{this.FormatDataTable()}
 				<Paper>
 					<Table>
 						<TableHead>
