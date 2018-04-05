@@ -16,6 +16,7 @@ class FetchData extends React.Component {
 			"hr": [],
 			"datapairs": [],
 		};
+		this.handleClick.bind(this)
 	}
 
 	onNameTextFieldChange = (event) => {
@@ -63,6 +64,25 @@ class FetchData extends React.Component {
 					{this.state.hr}
 					{this.state.datapairs}
 				</div>
+				<Paper>
+					<Table>
+						<TableHead>
+							<TableRow>
+								<TableCell>Time</TableCell>
+								<TableCell>HR</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							<TableRow>
+								<TableCell>{this.state.datapairs[0]}</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell>{this.state.time[0]}</TableCell>
+								<TableCell>{this.state.hr[0]}</TableCell>
+							</TableRow>
+						</TableBody>
+					</Table>
+				</Paper>
 			</div>
 		)
 	}
