@@ -22,15 +22,14 @@ class FetchData extends React.Component {
 		return (
 			<div>	
 				{this.props.userEmail}
-				<div {this.DataFromServer}>
-					{this.state.data}
-					<TableHead>
-						<TableRow>
-							<TableCell>Time</TableCell>
-							<TableCell>HR</TableCell>
-						</TableRow>
-					</TableHead>
-				</div>
+				{this.DataFromServer}>
+				{this.state.data}
+				<TableHead>
+					<TableRow>
+						<TableCell>Time</TableCell>
+						<TableCell>HR</TableCell>
+					</TableRow>
+				</TableHead>
 			</div>
 		)
 	}
