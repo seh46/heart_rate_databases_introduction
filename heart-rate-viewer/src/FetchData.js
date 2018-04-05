@@ -7,6 +7,7 @@ class FetchData extends React.Component {
 		super();
 		this.state = {
 			"data": "",
+			"datapairs": "",
 		};
 	}
 
@@ -15,6 +16,12 @@ class FetchData extends React.Component {
 		axios.get(URL).then( (response) => {
 			console.log(response.status);
 			this.setState({"data": response.data});
+			var datapieces = JSON.parse(this.state.data);
+			let a = this.state.datapairs.slice();
+			for (var i = 0; i < datapieces.time.length; i++) {
+				a[i] = [datapieces.time[i],datapieces.hr[i]];
+			}
+			this.setState({"datapairs": a})
 		});
 	}
 
