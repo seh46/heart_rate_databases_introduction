@@ -6,7 +6,7 @@ class FetchData extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			"data": "blank",
+			"data": "",
 		};
 	}
 
@@ -22,7 +22,7 @@ class FetchData extends React.Component {
 		return (
 			<div>	
 				{this.props.userEmail}
-				{this.DataFromServer}>
+				{this.DataFromServer}
 				{this.state.data}
 				<TableHead>
 					<TableRow>
