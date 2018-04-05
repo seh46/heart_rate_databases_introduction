@@ -36,7 +36,7 @@ def returnHRs(user_email):
     emp = vals["em"]
     hrp = vals["hr"]
     tp = vals["t"]
-    return jsonify(emp,hrp,tp),200
+    return jsonify(email=emp,hr=hrp,time=tp),200
 
 
 @app.route("/api/heart_rate/average/<user_email>", methods=["GET"])
