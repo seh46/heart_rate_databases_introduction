@@ -38,7 +38,11 @@ class FetchData extends React.Component {
 		return (
 			<div>
 				<div onClick={this.DataFromServer}>
-					{this.FormatDataTable()}
+					{this.state.data}
+					{this.state.time}
+					{this.state.hr}
+				</div>
+				<div onClick={this.state.datapairs}>
 					{this.state.datapairs}
 				</div>
 				<Paper>
