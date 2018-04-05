@@ -23,7 +23,6 @@ class FetchData extends React.Component {
 		return (
 			{this.props.userEmail}
 			<div onClick={this.DataFromServer}>
-				{this.props.userEmail}
 				{this.state.data}
 				<TableHead>
 					<TableRow>
