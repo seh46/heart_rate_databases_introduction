@@ -25,10 +25,10 @@ class FetchData extends React.Component {
 	}
 
 	FormatDataTable = () => {
-		var datapieces = JSON.parse(this.state.data);
+		//var datapieces = JSON.parse(this.state.data);
 		var a = [];
-		for (var i = 0; i < datapieces.time.length; i++) {
-			a.push([datapieces.time[i], datapieces.hr[i]]);
+		for (var i = 0; i < this.state.time.length; i++) {
+			a.push([this.state.time[i], this.state.hr[i]]);
 		}
 		this.setState({"datapairs": a})
 		console.log(this.state.datapairs);
