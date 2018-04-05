@@ -73,7 +73,8 @@ class FetchData extends React.Component {
 					</Button>
 				</div>
 				<div onClick={this.DataFromServer}>
-					{this.setState("time": this.data.time, "hr": this.data.hr)}
+					{this.setState("time": this.data.time)}
+					{this.setState("hr": this.data.hr)}
 				</div>
 				<Paper>
 					<Table>
